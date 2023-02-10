@@ -1,4 +1,4 @@
-package com.shou.jwtlogindemo.utils;
+package com.shou.imageannotation.utils;
 
 public enum ResultEnum {
     SUCCESS(200,"成功"),

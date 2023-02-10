@@ -1,7 +1,7 @@
-package com.shou.jwtlogindemo.security;
+package com.shou.imageannotation.security;
 
-import com.shou.jwtlogindemo.dao.UserDao;
-import com.shou.jwtlogindemo.po.User;
+import com.shou.imageannotation.dao.UserDao;
+import com.shou.imageannotation.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,7 +28,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         if (user!=null) {
             return getUserAuthorities(user);
         } else {
-            throw new UsernameNotFoundException("该用户名不存在: " + username);
+            return null;
         }
     }
 

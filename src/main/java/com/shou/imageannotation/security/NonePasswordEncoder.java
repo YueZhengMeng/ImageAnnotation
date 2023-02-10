@@ -1,4 +1,4 @@
-package com.shou.jwtlogindemo.security;
+package com.shou.imageannotation.security;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 

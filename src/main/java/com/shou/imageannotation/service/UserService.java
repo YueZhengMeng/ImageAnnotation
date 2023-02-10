@@ -1,8 +1,8 @@
-package com.shou.jwtlogindemo.service;
+package com.shou.imageannotation.service;
 
-import com.shou.jwtlogindemo.dao.UserDao;
-import com.shou.jwtlogindemo.po.User;
-import com.shou.jwtlogindemo.security.JwtUserDetailsService;
+import com.shou.imageannotation.dao.UserDao;
+import com.shou.imageannotation.po.User;
+import com.shou.imageannotation.security.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,9 +1,9 @@
-package com.shou.jwtlogindemo.security;
+package com.shou.imageannotation.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.shou.jwtlogindemo.po.User;
-import com.shou.jwtlogindemo.security.handler.JwtAuthenticationFailureHandler;
-import com.shou.jwtlogindemo.security.handler.JwtAuthenticationSuccessHandler;
+import com.shou.imageannotation.po.User;
+import com.shou.imageannotation.security.handler.JwtAuthenticationFailureHandler;
+import com.shou.imageannotation.security.handler.JwtAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.BadCredentialsException;

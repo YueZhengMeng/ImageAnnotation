@@ -1,4 +1,4 @@
-package com.shou.jwtlogindemo.utils;
+package com.shou.imageannotation.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

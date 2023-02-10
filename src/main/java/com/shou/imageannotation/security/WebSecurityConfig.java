@@ -1,6 +1,6 @@
-package com.shou.jwtlogindemo.security;
+package com.shou.imageannotation.security;
 
-import com.shou.jwtlogindemo.security.handler.*;
+import com.shou.imageannotation.security.handler.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

@@ -1,11 +1,11 @@
-package com.shou.jwtlogindemo.security;
+package com.shou.imageannotation.security;
 
 import com.auth0.jwt.exceptions.AlgorithmMismatchException;
 import com.auth0.jwt.exceptions.InvalidClaimException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
-import com.shou.jwtlogindemo.security.handler.JwtAuthenticationEntryPoint;
-import com.shou.jwtlogindemo.utils.JwtUtil;
+import com.shou.imageannotation.security.handler.JwtAuthenticationEntryPoint;
+import com.shou.imageannotation.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

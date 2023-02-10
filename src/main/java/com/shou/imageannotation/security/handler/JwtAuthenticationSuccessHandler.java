@@ -1,8 +1,8 @@
-package com.shou.jwtlogindemo.security.handler;
+package com.shou.imageannotation.security.handler;
 
-import com.shou.jwtlogindemo.utils.JwtResponseMessage;
-import com.shou.jwtlogindemo.utils.ResultEnum;
-import com.shou.jwtlogindemo.utils.JwtUtil;
+import com.shou.imageannotation.utils.JwtResponseMessage;
+import com.shou.imageannotation.utils.ResultEnum;
+import com.shou.imageannotation.utils.JwtUtil;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;

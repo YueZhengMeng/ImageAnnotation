@@ -1,4 +1,4 @@
-package com.shou.jwtlogindemo.po;
+package com.shou.imageannotation.po;
 
 public class User {
     private int userID;

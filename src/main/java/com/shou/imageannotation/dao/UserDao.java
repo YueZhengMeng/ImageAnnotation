@@ -1,6 +1,6 @@
-package com.shou.jwtlogindemo.dao;
+package com.shou.imageannotation.dao;
 
-import com.shou.jwtlogindemo.po.User;
+import com.shou.imageannotation.po.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 

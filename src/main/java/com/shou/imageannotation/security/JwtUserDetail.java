@@ -1,4 +1,4 @@
-package com.shou.jwtlogindemo.security;
+package com.shou.imageannotation.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

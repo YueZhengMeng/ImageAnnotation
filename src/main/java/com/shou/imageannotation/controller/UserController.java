@@ -1,7 +1,7 @@
-package com.shou.jwtlogindemo.controller;
+package com.shou.imageannotation.controller;
 
-import com.shou.jwtlogindemo.po.User;
-import com.shou.jwtlogindemo.service.UserService;
+import com.shou.imageannotation.po.User;
+import com.shou.imageannotation.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

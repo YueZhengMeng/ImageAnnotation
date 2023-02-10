@@ -1,4 +1,4 @@
-package com.shou.jwtlogindemo.utils;
+package com.shou.imageannotation.utils;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;

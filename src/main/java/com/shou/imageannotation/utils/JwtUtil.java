@@ -1,11 +1,11 @@
-package com.shou.jwtlogindemo.utils;
+package com.shou.imageannotation.utils;
 
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.shou.jwtlogindemo.security.JwtUserDetail;
+import com.shou.imageannotation.security.JwtUserDetail;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
