@@ -21,8 +21,20 @@ public interface UserDao {
     @Insert("insert into user(username,password) values(#{username},#{password})")
     int addUser(User user);
 
-    @Update("update user set username = #{username},password = #{password},role = #{role} where userID = #{userID}")
-    int updateUser(User user);
+    @Update("update user set username = #{username} where userID = #{userID}")
+    int updateUserName(User user);
+
+    @Update("update user set password = #{password} where userID = #{userID}")
+    int updateUserPassword(User user);
+
+    @Update("update user set role = #{role} where userID = #{userID}")
+    int updateUserRole(User user);
+
+    @Update("update user set role = 'banned' where userID = #{userID}")
+    int banUser(int userID);
+
+    @Update("update user set role = 'user' where userID = #{userID}")
+    int unbanUser(int userID);
 
     @Delete("delete from user where userID = #{userID}")
     int deleteUser(int userID);

@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -59,7 +59,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //上面的部分属于静态资源
                 .antMatchers("/api/user/register").permitAll()
                 .antMatchers("/api/login").permitAll()
-                .antMatchers("/api/user/all").hasRole("admin")
                 .anyRequest().authenticated();
 
         //关闭默认的表单登录

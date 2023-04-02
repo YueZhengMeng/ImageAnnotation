@@ -49,13 +49,6 @@ public class JwtUserDetailsService implements UserDetailsService {
         String role = user.getRole();
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_" + role));
-        if (role.equals("teacher")) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_" + "student"));
-        }
-        if (role.equals("admin")) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_" + "teacher"));
-            authorities.add(new SimpleGrantedAuthority("ROLE_" + "student"));
-        }
         return new JwtUserDetail(user.getUserID(),user.getUsername(), user.getPassword(),authorities);
     }
 
