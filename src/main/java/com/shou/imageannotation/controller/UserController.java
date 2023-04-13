@@ -21,14 +21,14 @@ public class UserController {
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     @Secured("ROLE_admin")
-    @ApiOperation(value = "查看所有User信息", notes = "管理员权限")
+    @ApiOperation(value = "查看所有User的信息", notes = "管理员权限")
     List<User> getAllUser() {
         return userService.getAllUser();
     }
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    @ApiOperation(value = "用户注册", notes = "所有权限\n只需要username与password")
+    @ApiOperation(value = "用户注册", notes = "无权限\n只需要username与password")
     int registerUser(@RequestBody User user) {
         return userService.registerUser(user);
     }
@@ -36,7 +36,7 @@ public class UserController {
     @GetMapping("/me")
     @ResponseStatus(HttpStatus.OK)
     @Secured({"ROLE_admin", "ROLE_checker", "ROLE_annotater", "ROLE_user"})
-    @ApiOperation(value = "获取当前登录的User的所有信息", notes = "主要用于获取role信息\n用户权限")
+    @ApiOperation(value = "获取当前登录的User的信息", notes = "主要用于获取role信息\n登录权限")
     User getLoginUser() {
         return userService.getLoginUser();
     }
@@ -44,7 +44,7 @@ public class UserController {
     @GetMapping("/byUserID/{userID}")
     @ResponseStatus(HttpStatus.OK)
     @Secured({"ROLE_admin", "ROLE_checker", "ROLE_annotater", "ROLE_user"})
-    @ApiOperation(value = "获取某个User的所有信息", notes = "用户权限")
+    @ApiOperation(value = "获取某个User的信息", notes = "登录权限")
     User getUserByID(@PathVariable int userID) {
         return userService.getUserByID(userID);
     }
@@ -52,7 +52,7 @@ public class UserController {
     @GetMapping("/byUserName/{userName}")
     @ResponseStatus(HttpStatus.OK)
     @Secured({"ROLE_admin", "ROLE_checker", "ROLE_annotater", "ROLE_user"})
-    @ApiOperation(value = "获取某个User的所有信息", notes = "用户权限")
+    @ApiOperation(value = "获取某个User的信息", notes = "登录权限")
     User getUserByName(@PathVariable String userName) {
         return userService.getUserByName(userName);
     }
@@ -60,7 +60,7 @@ public class UserController {
     @PutMapping("/resetUserName")
     @ResponseStatus(HttpStatus.CREATED)
     @Secured({"ROLE_admin", "ROLE_checker", "ROLE_annotater", "ROLE_user"})
-    @ApiOperation(value = "重置用户名", notes = "用户权限\n只需要userID与username")
+    @ApiOperation(value = "重置用户名", notes = "登录权限\n只需要userID与username")
     int resetUsername(@RequestBody User user) {
         return userService.resetUsername(user);
     }
@@ -68,7 +68,7 @@ public class UserController {
     @PutMapping("/resetPassword")
     @ResponseStatus(HttpStatus.CREATED)
     @Secured({"ROLE_admin", "ROLE_checker", "ROLE_annotater", "ROLE_user"})
-    @ApiOperation(value = "重置密码", notes = "用户权限\n只需要userID与password")
+    @ApiOperation(value = "重置密码", notes = "登录权限\n只需要userID与password")
     int resetPassword(@RequestBody User user) {
         return userService.resetPassword(user);
     }

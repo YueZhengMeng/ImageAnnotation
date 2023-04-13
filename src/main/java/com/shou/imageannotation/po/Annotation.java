@@ -5,7 +5,6 @@ public class Annotation {
     private int imageID;
     private int annotaterID;
     private String annotationDate;
-    private String annotationOpinion;
     private String annotationResult;
     private int checkerID;
     private String checkDate;
@@ -15,13 +14,12 @@ public class Annotation {
     public Annotation() {
     }
 
-    public Annotation(int annotationID, int imageID, int annotaterID, String annotationDate, String annotationOpinion,
+    public Annotation(int annotationID, int imageID, int annotaterID, String annotationDate,
                       String annotationResult, int checkerID, String checkDate, String checkOpinion, int checkResult) {
         this.annotationID = annotationID;
         this.imageID = imageID;
         this.annotaterID = annotaterID;
         this.annotationDate = annotationDate;
-        this.annotationOpinion = annotationOpinion;
         this.annotationResult = annotationResult;
         this.checkerID = checkerID;
         this.checkDate = checkDate;
@@ -59,14 +57,6 @@ public class Annotation {
 
     public void setAnnotationDate(String annotationDate) {
         this.annotationDate = annotationDate;
-    }
-
-    public String getAnnotationOpinion() {
-        return annotationOpinion;
-    }
-
-    public void setAnnotationOpinion(String annotationOpinion) {
-        this.annotationOpinion = annotationOpinion;
     }
 
     public String getAnnotationResult() {

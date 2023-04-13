@@ -7,23 +7,27 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.shou.imageannotation.security.JwtUserDetail;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
+import java.util.Collection;
 
 
 @Component
 public class JwtUtil {
-    private static final String salt = "1951215&1951231&1959234";
+    private static final String salt = "1959234&1951228&1951305&1951306";
 
     public static String generateToken(Authentication authentication)
     {
         JwtUserDetail jwtUserDetail = (JwtUserDetail) (authentication.getPrincipal());
         int userID = jwtUserDetail.getUserid();
         String username = jwtUserDetail.getUsername();
+        Collection<? extends GrantedAuthority> authorities = jwtUserDetail.getAuthorities();
         JWTCreator.Builder builder = JWT.create();
         builder.withClaim("userID", userID);
         builder.withClaim("username",username);
+        builder.withClaim("role",authorities.toString());
         Calendar instance = Calendar.getInstance();
         instance.add(Calendar.HOUR, 24);
         builder.withExpiresAt(instance.getTime());

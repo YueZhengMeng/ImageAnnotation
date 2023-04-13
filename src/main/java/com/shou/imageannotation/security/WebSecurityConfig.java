@@ -56,6 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/swagger-ui/**").permitAll()
                 .antMatchers("/druid/**").permitAll()
                 .antMatchers("/webjars/**", "/static/**").permitAll()
+                .antMatchers("/imageDB/**").permitAll()
                 //上面的部分属于静态资源
                 .antMatchers("/api/user/register").permitAll()
                 .antMatchers("/api/login").permitAll()

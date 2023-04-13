@@ -22,7 +22,7 @@ public class SwaggerConfig {
         Docket docket = new Docket(DocumentationType.SWAGGER_2);
         ApiInfo apiInfo = new ApiInfoBuilder()
                 .title("病理切片缺陷标注系统接口文档")
-                .description("1959234")
+                .description("登录接口：/api/login")
                 .license("Apache2.0")
                 .version("2.0")
                 .build();
