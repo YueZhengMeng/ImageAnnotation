@@ -29,7 +29,7 @@ services:
       - "javaApps:/usr/apps"
       - "ImageDB:/usr/ImageDB"
     ports:
-      - "9001:8080"
+      - "9001:8081"
     command: java -jar /usr/apps/ImageAnnotation.jar
 
   IA2:
@@ -45,7 +45,7 @@ services:
       - "javaApps:/usr/apps"
       - "ImageDB:/usr/ImageDB"
     ports:
-      - "9002:8080"
+      - "9002:8081"
     command: java -jar /usr/apps/ImageAnnotation.jar
 
   IA3:
@@ -61,7 +61,7 @@ services:
       - "javaApps:/usr/apps"
       - "ImageDB:/usr/ImageDB"
     ports:
-      - "9003:8080"
+      - "9003:8081"
     command: java -jar /usr/apps/ImageAnnotation.jar
 
   NginxIA:
@@ -80,7 +80,7 @@ services:
       - "nginxConf:/etc/nginx/conf.d"
     ports:
       - "8080:80"
-      - "8081:8081"
+      - "9000:9000"
 
 networks:
   IAnet:
