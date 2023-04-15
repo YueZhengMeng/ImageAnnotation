@@ -53,14 +53,14 @@ public class JwtLoginFilter extends OncePerRequestFilter {
                         jwtAuthenticationSuccessHandler.onAuthenticationSuccess(request, response, usernamePasswordAuthenticationToken);
                     }
                     else {
-                        jwtAuthenticationFailureHandler.onAuthenticationFailure(request, response, new BadCredentialsException("password error"));
+                        jwtAuthenticationFailureHandler.onAuthenticationFailure(request, response, new BadCredentialsException("密码错误"));
                     }
                 } else {
-                    jwtAuthenticationFailureHandler.onAuthenticationFailure(request, response, new UsernameNotFoundException("user not found"));
+                    jwtAuthenticationFailureHandler.onAuthenticationFailure(request, response, new UsernameNotFoundException("用户名不存在"));
                 }
             }
             else {
-                jwtAuthenticationFailureHandler.onAuthenticationFailure(request, response, new AuthenticationServiceException("http method error"));
+                jwtAuthenticationFailureHandler.onAuthenticationFailure(request, response, new AuthenticationServiceException("请求方法错误"));
             }
             //处理完登录请求可以直接结束过滤器链条，不必继续进行
             return;

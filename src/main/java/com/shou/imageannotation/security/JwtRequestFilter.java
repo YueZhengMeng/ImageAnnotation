@@ -76,7 +76,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             //如果token正常，则生成认证信息，加入上下文
             UserDetails userDetails = this.jwtUserDetailsService.loadUserByID(userID);
             if (userDetails == null) {
-                jwtAuthenticationFailureHandler.onAuthenticationFailure(request, response, new UsernameNotFoundException("user not found"));
+                jwtAuthenticationFailureHandler.onAuthenticationFailure(request, response, new UsernameNotFoundException("用户ID不存在"));
                 return;
             }
             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(

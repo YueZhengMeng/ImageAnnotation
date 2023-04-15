@@ -19,8 +19,8 @@ public class AnnotationController {
 
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    @Secured({"ROLE_admin"})
-    @ApiOperation(value = "获取所有标注的信息", notes = "管理员权限")
+    @Secured({"ROLE_admin", "ROLE_checker"})
+    @ApiOperation(value = "获取所有标注的信息", notes = "审核人员权限")
     public List<Annotation> getAllAnnotation() {
         return annotationService.getAllAnnotation();
     }

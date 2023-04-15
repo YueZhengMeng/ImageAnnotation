@@ -21,8 +21,8 @@ public class ImageController {
 
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    @Secured({"ROLE_admin"})
-    @ApiOperation(value = "获取所有图片的信息", notes = "管理员权限")
+    @Secured({"ROLE_admin", "ROLE_checker", "ROLE_annotater"})
+    @ApiOperation(value = "获取所有图片的信息", notes = "标注人员和审核人员权限")
     public List<Image> getAllImage() {
         return imageService.getAllImage();
     }
@@ -43,7 +43,7 @@ public class ImageController {
         return imageService.getImageByUploaderID(uploaderID);
     }
 
-    @PostMapping(value = "/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     @Secured({"ROLE_admin", "ROLE_user"})
     @ApiOperation(value = "添加图片", notes = "用户权限")

@@ -1,0 +1,55 @@
+1. 先创建六个数据卷：mysqlData mysqlConf javaApps nginxHtml nginxConf ImageDB
+
+2. 创建一个网桥 IAnet
+docker network create IAnet
+
+3. 创建mysql容器，用mysql workbench连接
+docker run -d --name MysqlIA --network IAnet --network-alias MysqlIA -v mysqlData:/var/lib/mysql -v mysqlConf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=root -p 3307:3306 mysql
+手动执行建库建表格sql语句
+
+4. 创建JDK容器(JRE即可，但我没有找到最新版本)
+docker run -dit --name IA1 --network IAnet --network-alias IA1 -v javaApps:/usr/apps -v ImageDB:/usr/ImageDB -p 9001:8080 openjdk:17
+docker run -dit --name IA2 --network IAnet --network-alias IA2 -v javaApps:/usr/apps -v ImageDB:/usr/ImageDB -p 9002:8080 openjdk:17
+docker run -dit --name IA3 --network IAnet --network-alias IA3 -v javaApps:/usr/apps -v ImageDB:/usr/ImageDB -p 9003:8080 openjdk:17
+将application.properties中数据库url改成 MysqlIA:3306，手动复制jar包到javaApps
+docker cp C:\Users\80457\Desktop\ImageAnnotation.jar IA1:/javaApps
+进入容器，手动运行jar包
+cd /usr/apps
+java -jar ImageAnnotation.jar
+
+5. 创建nginx容器
+docker run -d --name NginxIA --network IAnet --network-alias NginxIA -p 8080:80 -p 8081:8081 -v nginxHtml:/usr/share/nginx/html -v nginxConf:/etc/nginx/conf.d nginx
+复制前端文件到nginxHtml下
+配置文件如下，在nginxConf下
+upstream IA {
+    server IA1:8080 weight=1;
+    server IA2:8080 weight=1;
+    server IA3:8080 weight=1;
+}
+
+server {
+    listen       8081;
+    listen  [::]:8081;
+    server_name  IAs;
+
+    location / {
+        proxy_pass http://IA;
+    }
+
+}
+
+server {
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
